@@ -53,7 +53,9 @@ console.log(result);
 
 #### Example 2: Landing on a Safe Spot
 ```javascript
-let grid = [["🟥", "🟦", "🟥"], ["🟦", "🟥", "🟥"], ["🟥", "🟦", "🟦"]];
+let grid = [["🟥", "🟦", "🟥"],
+            ["🟦", "🟥", "🟥"],
+            ["🟥", "🟦", "🟦"]];
 let result = mineSweeper(grid, 2, 3);
 console.log(result); 
 ```

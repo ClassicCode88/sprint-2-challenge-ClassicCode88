@@ -32,10 +32,7 @@ The profile is considered active if the `active` prop is true and inactive if th
 
 #### Example 1: Activating a Profile
 ```javascript
-let testProfile = {
-  active: false,
-  reason: "Not logged in for 30 days"
-};
+
 
 let result = profileActivation(testProfile);
 console.log(result); 

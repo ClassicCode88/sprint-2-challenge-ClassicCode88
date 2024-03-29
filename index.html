@@ -4,35 +4,106 @@
 <head>
   <title>Web Sprint 2 Challenge</title>
   <script id="challenge">
+
+
     // 👉 CHALLENGE 1
     function profileActivation(profile, reason) {
-
+    if (profile.active) {
+        if (reason) {
+            profile.active = false;
+            profile.reason = reason;
+        } else {
+            return "confirm status manually";
+        }
+    } else {
+        profile.active = true;
+        delete profile.reason;
     }
 
-    // 👉 CHALLENGE 2
+    return profile;
+}
+
+   
+    
+
+    // 👉 CHALLENGE 2//
+
     function mineSweeper(grid, x, y) {
-
+    if (x < 1 || x > 3 || y < 1 || y > 3) {
+        return "invalid coordinates";
+    } if (grid[y - 1][x - 1] === "🟥") {
+        return "🟥 💀";
+    } else {
+        return "🟦 🥳";
     }
+}
+
 
     // 👉 CHALLENGE 3
     function booleanize(obj) {
-
+    for (let prop in obj) {
+        if (prop.length > 9) {
+            return "shorten all prop names to 9 chars or less";
+        } if (obj[prop] === 0) {
+            obj[prop] = false;
+        } else if (obj[prop] === 1) {
+            obj[prop] = true;
+        } else if (obj[prop] === null) {
+            delete obj[prop];
+        }
     }
+
+    return obj;
+}
+    
+    
 
     // 👉 CHALLENGE 4
     function scrub(text, forbidden) {
-
+    if (text === "" || forbidden.length === 0) {
+        return text;
     }
+console.log(text)
+    let words = text.split(" ");
+console.log(words)
+    let scrubbedText = words.map(word => {
+        if (forbidden.includes(word)) {
+            return "x".repeat(word.length);
+        } else {
+            return word;
+        }
+    });
+
+    return scrubbedText.join(" ");
+}
+
+  
 
     // 👉 CHALLENGE 5 (bonus, NOT graded)
     function normalizePhoneNumber(num) {
+   console.log(num)
+      return `(${num.slice(0, 3)}) ${num.slice(3, 6)}-${num.slice(6)}`;
+}
 
-    }
 
     // 👉 CHALLENGE 6 (bonus, NOT graded)
-    function diceRolls() {
+    function diceRolls(){
+    let rolls = 0;
+    let consecutiveSixes = 0;
 
+    while (consecutiveSixes < 3) {
+        rolls++;
+        let roll = Math.floor(Math.random() * 6) + 1;
+
+        if (roll === 6) {
+            consecutiveSixes++;
+        } else {
+            consecutiveSixes = 0;
+        }
     }
+
+    return rolls;
+}
 
     // 🧪 DO NOT make any changes below this line ===================
     globalThis.challengeVersion = 1
